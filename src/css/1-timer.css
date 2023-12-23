@@ -15,7 +15,7 @@
   letter-spacing: 0.64px;
   padding-left: 16px;
 }
-[data-start] {
+.default-btn {
   width: 72px;
   height: 40px;
   border: none;
@@ -28,7 +28,11 @@
   line-height: 24px;
   letter-spacing: 0.64px;
   border-radius: 8px;
-  background: #cfcfcf;
+  background-color: #cfcfcf;
+}
+.is-active-btn {
+  color: #fff;
+  background-color: #4e75ff;
 }
 .timer {
   margin-top: 32px;
