@@ -50,10 +50,17 @@ function convertMs(ms) {
 
 function handleTimer() {
   const intervalID = setInterval(() => {
-    console.log(convertMs(userSelectedDate - Date.now()));
+    updateClockFace(convertMs(userSelectedDate - Date.now()));
+    console.log(Date.now());
   }, 1000);
 }
 
 function addLeadingZero(value) {
   return String(value).padStart(2, '0');
+}
+function updateClockFace({ days, hours, minutes, seconds }) {
+  refs.days.textContent = days;
+  refs.hours.textContent = hours;
+  refs.minutes.textContent = minutes;
+  refs.seconds.textContent = seconds;
 }
