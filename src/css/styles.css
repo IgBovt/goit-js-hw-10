@@ -7,6 +7,7 @@
 @import url('./reset.css');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
 @import 'flatpickr/dist/flatpickr.min.css';
+@import 'izitoast/dist/css/iziToast.min.css';
 @import url('./1-timer.css');
 
 :root {
