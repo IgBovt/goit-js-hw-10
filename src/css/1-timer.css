@@ -33,7 +33,12 @@
 .is-active-btn {
   color: #fff;
   background-color: #4e75ff;
+  transition: background-color 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+.is-active-btn:hover {
+  background-color: #6c8cff;
+}
+
 .timer {
   margin-top: 32px;
   margin-left: 12px;
@@ -65,7 +70,12 @@
   background-color: red;
   margin-left: 8px;
   display: none;
+  transition: background-color 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .stop-btn-active {
   display: inline;
+}
+
+.stop-btn-active:hover {
+  background-color: rgb(242, 117, 117);
 }
