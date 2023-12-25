@@ -29,9 +29,10 @@ const options = {
       refs.button.classList.remove('is-active-btn');
       refs.button.setAttribute('disabled', '');
       iziToast.warning({
+        backgroundColor: 'red',
         title: 'Warning',
         message: 'Please choose a date in the future',
-        position: 'topLeft',
+        position: 'topRight',
       });
     } else {
       refs.button.classList.add('is-active-btn');
