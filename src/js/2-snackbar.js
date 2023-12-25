@@ -1,3 +1,5 @@
+import iziToast from 'izitoast';
+
 const formRef = document.querySelector('.form');
 const btnRef = document.querySelector('.js-btn');
 const dataObject = {
@@ -17,7 +19,37 @@ function getValue(e) {
 
 function getResult(e) {
   e.preventDefault();
-  const promise = new Promise(() => {
-    setTimeout(() => {}, dataObject.input);
+  const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (dataObject.checkbox === 'fulfilled') {
+        resolve('fulfilled');
+      }
+      reject('reject');
+    }, dataObject.input);
   });
+
+  promise.then(
+    result =>
+      iziToast.success({
+        title: 'OK',
+        titleColor: '#fff',
+        message: `Fulfilled promise in ${dataObject.input}ms`,
+        messageColor: '#fff',
+        iconUrl: '../img/bi_check2-circle.svg',
+        position: 'topRight',
+        backgroundColor: '#59A10D',
+      }),
+    error =>
+      iziToast.warning({
+        title: 'Error',
+        message: `Rejected promise in ${dataObject.input}ms`,
+        titleColor: '#fff',
+        messageColor: '#fff',
+        iconUrl: '../img/bi_x-octagon.svg',
+        backgroundColor: '#EF4040',
+        position: 'topRight',
+      })
+  );
+
+  formRef.reset();
 }
