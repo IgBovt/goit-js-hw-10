@@ -10,14 +10,13 @@ import { refs } from './1-refs';
 refs.button.addEventListener('click', handleTimer);
 refs.btnStop.addEventListener('click', stopTimer);
 
-// ====== LIBRARY ====== //
-// ====== LIBRARY ====== //
-
 let intervalID = null;
 let isActive = false;
 let userSelectedDate = null;
 const date = Date.now();
 
+// ====== LIBRARY ====== //
+// ====== LIBRARY ====== //
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -54,12 +53,17 @@ function handleTimer() {
 
   intervalID = setInterval(() => {
     updateClockFace(convertMs(userSelectedDate - Date.now()));
+    if (userSelectedDate - Date.now() <= 0) {
+      stopTimer();
+    }
   }, 1000);
 
   refs.input.setAttribute('disabled', '');
   refs.btnStop.classList.add('stop-btn-active');
 }
 
+// ====== STOP FUNCTION ====//
+// ====== STOP FUNCTION ====//
 function stopTimer() {
   clearInterval(intervalID);
   isActive = false;
