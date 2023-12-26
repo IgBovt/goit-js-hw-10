@@ -24,7 +24,7 @@ function getResult(e) {
         titleColor: '#fff',
         message: `Fulfilled promise in ${inputData}ms`,
         messageColor: '#fff',
-        iconUrl: '../img/bi_check2-circle.svg',
+        iconUrl: './img/bi_check2-circle.svg',
         position: 'topRight',
         backgroundColor: '#59A10D',
       });
@@ -35,7 +35,7 @@ function getResult(e) {
         message: `Rejected promise in ${inputData}ms`,
         titleColor: '#fff',
         messageColor: '#fff',
-        iconUrl: '../img/bi_x-octagon.svg',
+        iconUrl: './img/bi_x-octagon.svg',
         backgroundColor: '#EF4040',
         position: 'topRight',
       });
