@@ -24,7 +24,7 @@ function getResult(e) {
         titleColor: '#fff',
         message: `Fulfilled promise in ${inputData}ms`,
         messageColor: '#fff',
-        iconUrl: '/img/1.svg',
+        iconUrl: 'img/1.svg',
         position: 'topRight',
         backgroundColor: '#59A10D',
       });
@@ -35,7 +35,7 @@ function getResult(e) {
         message: `Rejected promise in ${inputData}ms`,
         titleColor: '#fff',
         messageColor: '#fff',
-        iconUrl: '/img/2.svg',
+        iconUrl: 'img/2.svg',
         backgroundColor: '#EF4040',
         position: 'topRight',
       });
