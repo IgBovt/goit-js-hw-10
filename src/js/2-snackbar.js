@@ -1,55 +1,45 @@
 import iziToast from 'izitoast';
 
 const formRef = document.querySelector('.form');
-const btnRef = document.querySelector('.js-btn');
-const dataObject = {
-  checkbox: '',
-  input: '',
-};
-
-formRef.addEventListener('input', getValue);
-btnRef.addEventListener('click', getResult);
-
-function getValue(e) {
-  return (
-    (dataObject.checkbox = e.currentTarget.elements.state.value),
-    (dataObject.input = e.currentTarget.elements.delay.value)
-  );
-}
+formRef.addEventListener('submit', getResult);
 
 function getResult(e) {
   e.preventDefault();
+
+  const inputData = e.currentTarget.elements.delay.value;
+  const checkboxData = e.currentTarget.elements.state.value;
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
-      if (dataObject.checkbox === 'fulfilled') {
+      if (checkboxData === 'fulfilled') {
         resolve('fulfilled');
       }
       reject('reject');
-    }, dataObject.input);
+    }, inputData);
   });
 
-  promise.then(
-    result =>
+  promise
+    .then(value => {
       iziToast.success({
         title: 'OK',
         titleColor: '#fff',
-        message: `Fulfilled promise in ${dataObject.input}ms`,
+        message: `Fulfilled promise in ${inputData}ms`,
         messageColor: '#fff',
         iconUrl: '../img/bi_check2-circle.svg',
         position: 'topRight',
         backgroundColor: '#59A10D',
-      }),
-    error =>
+      });
+    })
+    .catch(error => {
       iziToast.warning({
         title: 'Error',
-        message: `Rejected promise in ${dataObject.input}ms`,
+        message: `Rejected promise in ${inputData}ms`,
         titleColor: '#fff',
         messageColor: '#fff',
         iconUrl: '../img/bi_x-octagon.svg',
         backgroundColor: '#EF4040',
         position: 'topRight',
-      })
-  );
+      });
+    });
 
   formRef.reset();
 }
