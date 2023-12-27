@@ -1,4 +1,6 @@
 import iziToast from 'izitoast';
+import succ from '../img/1.svg';
+import err from '../img/2.svg';
 
 const formRef = document.querySelector('.form');
 formRef.addEventListener('submit', getResult);
@@ -24,7 +26,7 @@ function getResult(e) {
         titleColor: '#fff',
         message: value,
         messageColor: '#fff',
-        iconUrl: 'img/1.svg',
+        iconUrl: `${succ}`,
         position: 'topRight',
         backgroundColor: '#59A10D',
       });
@@ -35,7 +37,7 @@ function getResult(e) {
         message: error,
         titleColor: '#fff',
         messageColor: '#fff',
-        iconUrl: 'img/2.svg',
+        iconUrl: `${err}`,
         backgroundColor: '#EF4040',
         position: 'topRight',
       });
