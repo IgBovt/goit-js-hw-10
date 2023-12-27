@@ -11,9 +11,9 @@ function getResult(e) {
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
       if (checkboxData === 'fulfilled') {
-        resolve('fulfilled');
+        resolve(`Fulfilled promise in ${inputData}ms`);
       }
-      reject('reject');
+      reject(`Rejected promise in ${inputData}ms`);
     }, inputData);
   });
 
@@ -22,7 +22,7 @@ function getResult(e) {
       iziToast.success({
         title: 'OK',
         titleColor: '#fff',
-        message: `Fulfilled promise in ${inputData}ms`,
+        message: value,
         messageColor: '#fff',
         iconUrl: 'img/1.svg',
         position: 'topRight',
@@ -32,7 +32,7 @@ function getResult(e) {
     .catch(error => {
       iziToast.warning({
         title: 'Error',
-        message: `Rejected promise in ${inputData}ms`,
+        message: error,
         titleColor: '#fff',
         messageColor: '#fff',
         iconUrl: 'img/2.svg',
